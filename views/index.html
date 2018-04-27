@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Movie Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/loader.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  </head>
+  <body>
+
+    <div class="container">
+      <h1>Movie Search</h1>
+
+      <form id="search_form">
+        <div class="form-group" id="form__group">
+          <input name="q" id="q" placeholder="Title search" class="form-control" />
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+
+        <div id="form__options">
+
+          <div class="input-group-prepend" id="form__optionItem">
+            <div class="input-group-text">
+              <input type="checkbox" id="whole_words" name="whole_words" aria-label="Search only for full words">
+              <label for="whole_words">Search only for whole words</label>
+            </div>
+          </div>
+          <div class="input-group-prepend" id="form__optionItem">
+            <div class="input-group-text">
+              <input type="checkbox" id="whole_sentence" name="whole_sentence" aria-label="Search only for the whole sentence">
+              <label for="whole_sentence">Search only for the whole sentence</label>
+            </div>
+          </div>
+
+        </div>
+
+      </form>
+      <div id="sort">
+        <button type="button" class="btn btn-success" id="sort_name">Sort by name</button>
+        <button type="button" class="btn btn-warning" id="sort_year">Sort by year</button>
+      </div>
+      <div id="loader">
+        <!-- extra divs required for CSS purposes -->
+        <div>
+          <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
+      </div>
+      <ul id="results" class="list-group"></ul>
+
+    </div>
+
+    <script type="text/javascript" src="javascripts/form.js"></script>
+    <script type="text/javascript" src="javascripts/moviesearch.js"></script>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", MovieSearch)
+    </script>
+
+  </body>
+</html>

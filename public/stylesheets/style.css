@@ -1,0 +1,50 @@
+* {
+  box-sizing: content-box;
+}
+
+#container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#results {
+  margin-top:10px;
+}
+
+#form__group {
+  display:flex;
+}
+
+#form__options{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#form__optionItem{
+  width: 40%;
+}
+
+#sort {
+  display:none;
+  justify-content: center;
+  margin:15px 0;
+}
+
+#loader {
+  display:none;
+  justify-content: center;
+}
+
+.blue {
+  background-color: #286090 !important;
+}
+
+@media only screen and (max-width: 500px) {
+    #form__optionItem {
+        width: 100%;
+    }
+    .my-list-items{
+      display:flex;
+      flex-wrap: wrap;
+    }
+}
