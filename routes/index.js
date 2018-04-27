@@ -15,23 +15,36 @@ router.get('/', function(req, res, next) {
 router.post('/search', (req, res, next) => {
 
   let {search_terms, whole_words, whole_sentence} = req.body;
-  console.log("search_terms, whole_words, whole_sentence",search_terms, whole_words, whole_sentence);
   let re, split = search_terms.split(" ");
   if(whole_sentence){
     //Case for whole_sentence
     re = "^"+search_terms+"$"
-  }else if(split.length > 1){
-    //More than one word
-    if(whole_words){
-      //But asked for whole words
-      re = split.join("$|").concat("$");
-    }else{
-      //Didn't ask for whole words
-      re = split.join("|")
-    }
   }else{
-      re = search_terms;
+
+      if(split.length > 1){
+
+        //More than one word
+        if(whole_words){
+          //But asked for whole words
+          console.log(re);
+          re = split.join("$|").concat("$");
+        }else{
+          //Didn't ask for whole words
+          console.log(re);
+          re = split.join("|")
+        }
+
+      }else{
+        if(whole_words){
+          // re = "\s"+search_terms+"\s|^"+search_terms+"\s|\s"+search_terms+"$";
+          re = "\\b"+search_terms+"\\b";
+        }else{
+          re = search_terms;
+        }
+      }
+
   }
+  // \shola\s|^hola\s|\shola$
   console.log(re);
   let regex = new RegExp(re,"g");
   Movie.find({
