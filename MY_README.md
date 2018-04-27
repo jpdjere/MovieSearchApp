@@ -11,7 +11,7 @@ with the Express framework and a (vanilla) Javascript frontend. The movie data
 was initially imported into a NoSQL MongoDB and used with Mongoose.
 
 The app allows to search for a single term or a combination of search terms that
-should match the originalTitle property in each of the data's records. The app
+should match the ``originalTitle`` property in each of the data's records. The app
 also allows the user to search only for whole words (to prevent matching of
 parts of words) and matching the whole sentence (so as to match full titles).
 
